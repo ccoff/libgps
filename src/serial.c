@@ -10,9 +10,10 @@
 
 int uart0_filestream = -1;
 
-void serial_init(void)
+void serial_init(char *devname)
 {
-    uart0_filestream = open(PORTNAME, O_RDWR | O_NOCTTY | O_NDELAY);
+    uart0_filestream = open(devname == NULL ? PORTNAME : devname,
+                            O_RDWR | O_NOCTTY | O_NDELAY);
 
     if (uart0_filestream == -1)
     {

@@ -7,8 +7,8 @@
 #include "nmea.h"
 #include "serial.h"
 
-extern void gps_init(void) {
-    serial_init();
+extern void gps_init(char *devname) {
+    serial_init(devname);
     serial_config();
 
     //Write commands
