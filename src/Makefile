@@ -29,6 +29,10 @@ install:
 	ln -s `pwd`/${BUILD_DIR}/libgps.a /usr/lib/libgps.a
 	ln -s `pwd`/${BUILD_DIR}/gps.h /usr/include/gps.h
 
+uninstall:
+	$(RM) /usr/lib/libgps.a
+	$(RM) /usr/include/gps.h
+
 clean:
 	${RM} ${BUILD_DIR}/*
 

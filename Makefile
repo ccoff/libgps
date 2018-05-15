@@ -11,6 +11,9 @@ all:
 install:
 	$(MAKE) -C src install
 
+uninstall:
+	$(MAKE) -C src uninstall
+
 tests: all
 	$(MAKE) -C tests all
 
