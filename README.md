@@ -1,3 +1,10 @@
+# About this fork
+
+This fork adds the following features:
+
+ * Device name parameter for `gps_init` - Instead of hard-coding the device name (aka "PORTNAME") in serial.h, allow callers to specify the device name in `gps_init`. Note that this change necessarily breaks existing implementations by adding a function parameter to `gps_init`. However, it enables callers to easily use different devices (e.g., "/dev/ttyUSB0", "/dev/ttyS0", etc) without having to recompile the libgps library every time.
+ * `make uninstall` target - This enables easily installing and uninstalling the libgps library. Useful for testing.
+
 # GPS library
 
 The GPS library
@@ -23,7 +30,7 @@ in your application
 
 The library mainly exposes few methods
 
- * `gps_init` - Initialize the communication
+ * `gps_init(char *devname)` - Initialize the communication. For example, `gps_init("/dev/ttyUSB0")`
  * `gps_on` - Activate the GPS device
  * `gps_location` - Expose data from GPS (latitude, longitude, speed, course, altitude)
  * `gps_off` - Turn off the GPS device
